@@ -1,11 +1,11 @@
 var buttonColors = ['red', 'blue', 'green', 'yellow'];
-var gamePattern = []; 
+var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var highScore = 0;
 
-
 function nextSequence() {
+    // Reset userClickedPattern after completing the previous round
     userClickedPattern = [];
     level++;
     $("h1").text("Level " + level);
@@ -23,35 +23,38 @@ function nextSequence() {
     audio.play();
 }
 
-
 $(".simon button").click(function () {
     var userChosenColor = $(this).attr("id");
     userClickedPattern.push(userChosenColor);
+
     var clickAudio = new Audio("sounds/" + userChosenColor + ".mp3");
     clickAudio.play();
+
     $("." + userChosenColor).addClass("pressed");
     setTimeout(function () {
         $("#" + userChosenColor).removeClass("pressed");
     }, 100);
-    checkAnswer(userClickedPattern.length - 1);
-});
 
+    checkAnswer(userClickedPattern.length - 1); // Check answer after each click
+});
 
 function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+        // If the user has finished their sequence and it's correct
         if (userClickedPattern.length === gamePattern.length) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
         }
     } else {
-        playSound("wrong"); 
+        playSound("wrong");
         $("h1").addClass("game-over");
         setTimeout(function () {
             $("h1").removeClass("game-over");
         }, 200);
         $("h1").text("Game Over, Press Start to Play");
 
+        // Check for new high score
         if (level > highScore) {
             highScore = level;
             $("#highscore").text("High Score: " + highScore);
@@ -60,18 +63,15 @@ function checkAnswer(currentLevel) {
     }
 }
 
-
 function resetGame() {
     level = 0;
     gamePattern = [];
 }
 
-
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 }
-
 
 $("#start").on("click", function () {
     resetGame();
