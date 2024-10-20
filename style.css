@@ -1,0 +1,203 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #787474;
+}
+
+.wrapper {
+    background-color: wheat;
+    height: 25rem;
+    width: 25rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10%;
+}
+
+.simon {
+    background-color: black;
+    height: 21.5rem;
+    width: 21rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+
+}
+
+.color-part {
+    height: 8rem;
+    width: 8rem;
+    position: absolute;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border: transparent;
+
+}
+
+.color-part:hover {
+    transform: scale(1.1);
+}
+
+.green {
+    border-radius: 100% 0 0 0;
+    background-color: green;
+    top: 30px;
+    left: 30px;
+}
+
+.red {
+    border-radius: 0 100% 0 0;
+    background-color: red;
+    top: 30px;
+    right: 30px;
+}
+
+.blue {
+    border-radius: 0 0 100% 0;
+    background-color: blue;
+    bottom: 30px;
+    right: 30px;
+}
+
+.yellow {
+    border-radius: 0 0 0 100%;
+    background-color: yellow;
+    bottom: 30px;
+    left: 30px;
+}
+
+.simon:before {
+    position: absolute;
+    background-color: black;
+    content: "";
+    height: 8rem;
+    width: 8rem;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+
+}
+
+#count {
+    background-color: aliceblue;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    border-radius: 15%;
+    padding: 0.5rem 1rem;
+
+
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 5%; 
+    flex-wrap: wrap; 
+    z-index: 1;
+    width: 100%; 
+    gap: 50%
+}
+
+.container button{
+ background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins',sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  padding:15px 40px ;
+}
+
+.container button:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+
+
+
+
+#Results {
+    position: absolute;
+    left: 45%;
+    top: 0;
+}
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+
+.animated {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+    animation: flash 0.8s ease-in-out; 
+    
+}
+
+@keyframes flash {
+    0% {
+        box-shadow: 0 0 20px 10px rgba(235, 165, 165, 0.82);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(85, 7, 202, 0.74);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 20px 10px rgba(55, 218, 33, 0.575);
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #Results {
+        margin: 10px 0;
+        left: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: center; 
+        gap: 20px;
+        margin-top: 17%;    
+  }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <section class="container">
+        <button id="start">Start</button>
+        <h1 id="Results">Press Start to Play</h1> 
+        <p id="highscore">High Score: 0</p> 
+    </section>
+    <div class="wrapper"></div>
+    <div class="simon">
+        <button id="green" class="color green color-part"></button>
+        <button id="red" class="color red color-part"></button>
+        <button id="blue" class="color blue color-part"></button>
+        <button id="yellow" class="color yellow color-part"></button>
+        <div id="count">00</div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
